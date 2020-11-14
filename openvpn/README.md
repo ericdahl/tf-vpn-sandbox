@@ -8,7 +8,7 @@ $ ssh openvpnas@<vpn_private_ip>
 
 # configure with defaults
 
-$ sudo passwd openvpnas
+$ sudo passwd openvpn
 ```
 
 ## Admin Page
