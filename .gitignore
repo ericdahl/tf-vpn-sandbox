@@ -1,7 +1,7 @@
 terraform.tfstate*
 .terraform/
 terraform.tfvars
-
+*.log
 
 *.iml
 .idea/
