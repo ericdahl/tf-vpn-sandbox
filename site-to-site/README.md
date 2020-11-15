@@ -4,7 +4,7 @@ This is a standalone test VPC used to establish a Site to Site VPN with an exter
 
 It's for testing/learning purposes only.
 
-Currently using pfsense for the other Site
+Currently, using pfsense for the other Site
 
 ## Steps
 
@@ -33,7 +33,10 @@ and then select `Download Configuration`. For this, I'm using pfSense.
 ### Verify connection
 
 ```
-$ ping 10.111.111.162
+$ ping <private_ip>
 ```
-            
+
+### Adjust FW Rules as needed
+
+For VPC to Site B traffic, most likely need to add new FW rules on IPSec interface. (default is deny)
 
