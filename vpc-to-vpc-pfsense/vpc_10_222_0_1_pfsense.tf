@@ -40,24 +40,6 @@ resource "aws_security_group_rule" "vpc_10_222_0_0_pfsense_egress_all" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "vpc_10_222_0_0_pfsense_ingress_other_vpn_remote" {
-  security_group_id = aws_security_group.vpc_10_222_0_0_pfsense.id
-  type              = "ingress"
-  from_port         = 0
-  to_port           = 0
-  protocol          = "-1"
-  cidr_blocks       = ["${aws_instance.vpc_10_111_0_0_pfsense.public_ip}/32"]
-}
-
-resource "aws_security_group_rule" "vpc_10_222_0_0_pfsense_ingress_all" {
-  security_group_id = aws_security_group.vpc_10_222_0_0_pfsense.id
-  type              = "ingress"
-  from_port         = 0
-  to_port           = 0
-  protocol          = "-1"
-  cidr_blocks       = ["0.0.0.0/0"]
-}
-
 resource "aws_security_group_rule" "vpc_10_222_0_0_pfsense_ingress_22" {
   security_group_id = aws_security_group.vpc_10_222_0_0_pfsense.id
   type              = "ingress"
@@ -82,7 +64,7 @@ resource "aws_security_group_rule" "vpc_10_222_0_0_pfsense_ingress_500" {
   from_port         = 500
   to_port           = 500
   protocol          = "udp"
-  cidr_blocks       = ["0.0.0.0/0"] # todo: correct IPs
+  cidr_blocks       = ["${aws_instance.vpc_10_111_0_0_pfsense.public_ip}/32"]
 }
 
 resource "aws_security_group_rule" "vpc_10_222_0_0_pfsense_ingress_4500" {
@@ -91,5 +73,5 @@ resource "aws_security_group_rule" "vpc_10_222_0_0_pfsense_ingress_4500" {
   from_port         = 4500
   to_port           = 4500
   protocol          = "udp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["${aws_instance.vpc_10_111_0_0_pfsense.public_ip}/32"]
 }

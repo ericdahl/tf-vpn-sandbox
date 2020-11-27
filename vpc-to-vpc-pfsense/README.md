@@ -33,7 +33,7 @@ On PfSense 1:
 
 - VPN -> ipSec
 - Create P1
-    - Disabled: true
+    - Version: IKEv2
     - Remote Gateway: <pfsense_2_public_ip>
     - My Identifier: IP address <pfsense_1_public_ip>
     - Peer Identifier: IP address <pfsense_2_public_ip>
@@ -41,10 +41,10 @@ On PfSense 1:
         - note: ran into odd issues here with auto-generated long key (?)
     - (everything else defaults)
 - Create P2
-    - Local Subnet: WAN
+    - Local Subnet: 10.111.0.0/16 (VPC 1 CIDR) **NOT WAN interface which is /24**
     - Remote Subnet: 10.222.0.0/16 (VPC 2 CIDR)
     
-### Repeat for other pfSense
+### Repeat for other pfSense, in reverse
     
     
 ### Enable both P1s / P2s
@@ -75,4 +75,3 @@ satisfying.
 # TODO
 
 - modularize VPCs?
-- figure out issue with routing 222 -> 111 icmp

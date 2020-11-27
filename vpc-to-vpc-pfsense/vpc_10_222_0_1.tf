@@ -44,11 +44,11 @@ resource "aws_route_table" "vpc_10_222_0_0" {
   }
 }
 
-//resource "aws_route" "vpc_10_222_0_0_public_rfc1918_10_0_0_0_8" {
-//  route_table_id         = aws_route_table.vpc_10_222_0_0.id
-//  destination_cidr_block = "10.0.0.0/8"
-//  network_interface_id = aws_instance.vpc_10_222_0_0_pfsense.primary_network_interface_id
-//}
+resource "aws_route" "vpc_10_222_0_0_public_rfc1918_10_0_0_0_8" {
+  route_table_id         = aws_route_table.vpc_10_222_0_0.id
+  destination_cidr_block = "10.0.0.0/8"
+  network_interface_id = aws_instance.vpc_10_222_0_0_pfsense.primary_network_interface_id
+}
 
 resource "aws_route" "vpc_10_222_0_0_public" {
   route_table_id         = aws_route_table.vpc_10_222_0_0.id

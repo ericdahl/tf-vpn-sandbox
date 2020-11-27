@@ -29,11 +29,11 @@ resource "aws_security_group_rule" "vpc_10_222_0_0_private_egress_all" {
 }
 
 
-resource "aws_security_group_rule" "vpc_10_222_0_0_private_ingress_all" {
+resource "aws_security_group_rule" "vpc_10_222_0_0_private_ingress_vpc" {
   security_group_id = aws_security_group.vpc_10_222_0_0_private.id
   type              = "ingress"
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = [aws_vpc.vpc_10_111_0_0.cidr_block]
 }
